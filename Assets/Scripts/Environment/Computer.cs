@@ -1,6 +1,7 @@
 ﻿using Environment.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts;
 
 namespace Environment {
     public class Computer : MonoBehaviour, IInteractable {
@@ -8,16 +9,7 @@ namespace Environment {
         private Task testTask = null; // Put your stack/queue here :)
 
         [SerializeField]
-        private List<Task> tasks = new List<Task>();
-
-        Queue<Task> taskQueue = new Queue<Task>();
-
-        void Start() {
-            foreach(var item in tasks) {
-                taskQueue.Enqueue(item);
-            }
-            
-        }
+        Queues<Task> taskQueue = new Queues<Task>();
 
         public void OnInteract() {
             if (taskQueue.Count > 0) {
