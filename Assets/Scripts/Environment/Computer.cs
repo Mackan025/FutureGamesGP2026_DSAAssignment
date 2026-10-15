@@ -1,7 +1,7 @@
 ﻿using Environment.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts;
+using CustomQueues;
 
 namespace Environment {
     public class Computer : MonoBehaviour, IInteractable {

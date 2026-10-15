@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts {
+namespace CustomQueues {
     [Serializable]
     public class Queues<T> {
 
