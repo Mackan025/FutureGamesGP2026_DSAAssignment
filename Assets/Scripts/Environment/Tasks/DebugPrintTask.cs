@@ -6,7 +6,8 @@ namespace Environment.Tasks {
         [SerializeField]
         private string textToPrint = "Hi, I'm a test task!";
 
-        public override void Execute() {
+        public override void Execute()
+        {
             Debug.Log(textToPrint);
         }
     }
