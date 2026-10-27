@@ -13,21 +13,6 @@ MonoBehaviour:
   m_Name: Employees
   m_EditorClassIdentifier: Assembly-CSharp::Employees.Workers
   employeesSaveArray:
-  - name: Jane  Sanchez
-    employeeId: 431
-    hasEngineRoomClearance: 1
-    lastEntranceInEngineRoom: 2234-08-09T22:13:12
-    lastExitFromEngineRoom: 2234-08-09T22:13:19
-  - name: Jane  Sanchez
-    employeeId: 431
-    hasEngineRoomClearance: 1
-    lastEntranceInEngineRoom: 2234-08-09T22:13:14
-    lastExitFromEngineRoom: 2234-08-09T22:13:19
-  - name: Jane  Sanchez
-    employeeId: 431
-    hasEngineRoomClearance: 1
-    lastEntranceInEngineRoom: 2234-08-09T22:13:13
-    lastExitFromEngineRoom: 2234-08-09T22:13:19
   - name: Alfred Pugsley
     employeeId: 192
     hasEngineRoomClearance: 0
@@ -36,5 +21,10 @@ MonoBehaviour:
   - name: Nem Tudom
     employeeId: 665
     hasEngineRoomClearance: 1
-    lastEntranceInEngineRoom: 2234-08-09T22:13:15
+    lastEntranceInEngineRoom: 2234-08-09T22:13:17
     lastExitFromEngineRoom: 2234-08-09T22:13:22
+  - name: Jane  Sanchez
+    employeeId: 431
+    hasEngineRoomClearance: 1
+    lastEntranceInEngineRoom: 2234-08-09T22:13:12
+    lastExitFromEngineRoom: 2234-08-09T22:13:19
