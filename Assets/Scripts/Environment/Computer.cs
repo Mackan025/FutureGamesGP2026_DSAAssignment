@@ -12,7 +12,7 @@ namespace Environment {
 
         public void OnInteract() {
             if (taskQueue.Count > 0) {
-                //taskQueue.Dequeue().Execute();
+                taskQueue.Dequeue().Execute();
             }
         }
     }

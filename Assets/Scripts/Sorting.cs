@@ -1,7 +1,5 @@
 using Employees;
 using System;
-using UnityEngine;
-using static UnityEditor.Progress;
 
 
 public class Sorting {
@@ -19,38 +17,31 @@ public class Sorting {
             ob.Sort(arr, 0, n - 1);
         }
 
-        int partition(Workers.Employees[] arr, int low, int high) {
-            // First element as pivot
+        int Partition(Workers.Employees[] arr, int low, int high) {
+            // Choose a random pivot index
+            int pivotIndex = UnityEngine.Random.Range(low, high + 1);
 
-            //int pivot = UnityEngine.Random.Range(low, high + 1);
+            // Move the pivot to the end
+            Swap(arr, pivotIndex, high);
 
-            int st = low; // st points to the starting of array
-            int end = high; // end points to the ending of the array
-            int k = high;
+            // Use the last element as the pivot
+            DateTime pivot = DateTime.Parse(arr[high].lastEntranceInEngineRoom);
 
-            
+            int i = low - 1;
 
-            for(int i = high; i > low; i--) {
+            for(int j = low; j < high; j++) {
+                DateTime current = DateTime.Parse(arr[j].lastEntranceInEngineRoom);
 
-                //DateTime dt = DateTime.Parse(arr[UnityEngine.Random.Range(low, high)].lastEntranceInEngineRoom);
-                DateTime dt = DateTime.Parse(arr[high].lastEntranceInEngineRoom);
-
-                DateTimeOffset pivot = new(dt);
-
-
-                DateTime d = DateTime.Parse(arr[i].lastEntranceInEngineRoom);
-
-                DateTimeOffset dateTimeOffset = new(d);
-
-                if(dateTimeOffset.ToUnixTimeSeconds() > pivot.ToUnixTimeSeconds()) {
-                    Swap(arr, i, k--);
+                if(current <= pivot) {
+                    i++;
+                    Swap(arr, i, j);
                 }
             }
-            Swap(arr, low, k);
-            // As we got pivot element index is end
-            // now pivot element is at its sorted position
-            // return pivot element index (end)
-            return k;
+
+            // Place pivot in its correct position
+            Swap(arr, i + 1, high);
+
+            return i + 1;
         }
 
         void Sort(Workers.Employees[] arr, int low, int high) {
@@ -58,7 +49,7 @@ public class Sorting {
             if(low < high) {
                 // idx is index of pivot element which is at its
                 // sorted position
-                int idx = partition(arr, low, high);
+                int idx = Partition(arr, low, high);
 
                 // Separately sort elements before
                 // partition and after partition
