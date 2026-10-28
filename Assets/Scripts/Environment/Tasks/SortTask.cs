@@ -8,7 +8,7 @@ namespace Environment.Tasks {
         [SerializeField] Workers array;
 
         public override void Execute() {
-            Sorting.QuickSort(array);
+            QuickSort.StartSort(array.employeesSaveArray);
         }
     }
 }
