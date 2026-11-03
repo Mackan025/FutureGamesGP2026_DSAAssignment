@@ -5660,7 +5660,7 @@ PrefabInstance:
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: 'taskQueue.queue.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 15a985bd0efb0c4439e261be1fc8df67, type: 2}
+      objectReference: {fileID: 11400000, guid: a2b5c1f2781246445b900b3a883aba91, type: 2}
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: 'taskQueue.queue.Array.data[1]'
       value: 
