@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace search {
     [CreateAssetMenu(fileName = "Search", menuName = "Search")]
@@ -19,7 +20,11 @@ namespace search {
 
         [SerializeField] Workers.Employees[] resultArray;
 
+        float startTime;
+
         public override void Execute() {
+
+            startTime = Time.realtimeSinceStartup;
 
             DateTime low = DateTime.Parse(lowString);
             DateTime high = DateTime.Parse(highString);
@@ -33,12 +38,14 @@ namespace search {
             StartBinarySearch(array, low, out int lowResult);
             StartBinarySearch(array, high, out int highResult);
 
-            if(lowResult != -1 && highResult != -1) {
+            if (lowResult != -1 && highResult != -1) {
                 FindRange(array, lowResult, highResult);
             }
             else {
                 Debug.LogError("No results found");
             }
+
+            Debug.Log(BenchMark(startTime) + " seconds to Execute");
         }
 
         void StartBinarySearch(Workers workers, DateTime num, out int result) {
@@ -72,24 +79,24 @@ namespace search {
         }
 
         void FindRange(Workers workers, int low, int high) {
-            if(low > high || high - low + 1 <= 0) {
-
-                Debug.Log(low);
-                Debug.Log(high);
-                Debug.Log(high - low + 1);
-                Debug.LogError("Outside range");
-                return;
-            }
+            if (low > high || high - low + 1 <= 0) return;
 
             resultArray = new Workers.Employees[high - low + 1];
             int j = 0; 
-            for(int i = low; i <= high; i++) {
+            for (int i = low; i <= high; i++) {
                 
                 resultArray[j] = workers.employeesSaveArray[i];
                 j++;
             }
         }
 
+        float BenchMark(float start) {
 
+            float stop = Time.realtimeSinceStartup;
+
+            float time = stop - start;
+
+            return time;
+        }
     }
 }
