@@ -29,16 +29,17 @@ namespace search {
             DateTime low = DateTime.Parse(lowString);
             DateTime high = DateTime.Parse(highString);
 
-            if (low > high) {
+            if(low > high) {
                 DateTime temp = low;
                 low = high;
                 high = temp;
             }
 
+
             StartBinarySearch(array, low, out int lowResult);
             StartBinarySearch(array, high, out int highResult);
 
-            if (lowResult != -1 && highResult != -1) {
+            if(lowResult != -1 && highResult != -1) {
                 FindRange(array, lowResult, highResult);
             }
             else {
@@ -60,12 +61,24 @@ namespace search {
                 if (DateTime.Parse(workers.employeesSaveArray[mid].lastEntranceInEngineRoom) == num) {
                     result = mid;
 
-                    while (mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
-                        result = mid - 1;
-                        mid--;
-                    }
 
-                    Debug.Log("Found at index: " + result);
+                    if(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
+                        while(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
+                            result = mid - 1;
+                            mid--;
+                        }
+                        return;
+                    }
+                    else if (mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
+                        while(mid < workers.employeesSaveArray.Length - 1 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
+                            result = mid + 1;
+                            mid++;
+                        }
+                        return;
+                    }
+                    
+                    
+
                     return;
                 }
 
