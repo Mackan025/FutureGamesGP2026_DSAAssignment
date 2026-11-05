@@ -96,7 +96,7 @@ namespace search {
 
             resultArray = new Workers.Employees[high - low + 1];
             int j = 0; 
-            for (int i = low; i <= high; i++) {
+            for (int i = low; i < high; i++) {
                 
                 resultArray[j] = workers.employeesSaveArray[i];
                 j++;
