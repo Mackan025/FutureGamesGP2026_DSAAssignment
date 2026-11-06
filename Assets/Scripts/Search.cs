@@ -62,20 +62,20 @@ namespace search {
                     result = mid;
 
 
-                    if(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
-                        while(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
-                            result = mid - 1;
-                            mid--;
-                        }
-                        return;
-                    }
-                    else if (mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
-                        while(mid < workers.employeesSaveArray.Length - 1 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
-                            result = mid + 1;
-                            mid++;
-                        }
-                        return;
-                    }
+                    //if(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
+                    //    while(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid - 1].lastEntranceInEngineRoom) == num) {
+                    //        result = mid - 1;
+                    //        mid--;
+                    //    }
+                    //    return;
+                    //}
+                    //else if (mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
+                    //    while(mid < workers.employeesSaveArray.Length - 1 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
+                    //        result = mid + 1;
+                    //        mid++;
+                    //    }
+                    //    return;
+                    //}
                     
                     
 
@@ -96,7 +96,7 @@ namespace search {
 
             resultArray = new Workers.Employees[high - low + 1];
             int j = 0; 
-            for (int i = low; i < high; i++) {
+            for (int i = low; i < high+1; i++) {
                 
                 resultArray[j] = workers.employeesSaveArray[i];
                 j++;
