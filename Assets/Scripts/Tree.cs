@@ -9,7 +9,7 @@ namespace Tree {
 
     public class Node {
         public Workers.Employees data;
-        public List<Workers.Employees> duplicates = new List<Workers.Employees>();
+        public List<Workers.Employees> duplicates = new();
 
         public Node left;
         public Node right;
@@ -36,12 +36,8 @@ namespace Tree {
         public List<Workers.Employees> SearchRange(DateTime low, DateTime high) {
             List<Workers.Employees> result = new();
 
-            if (low > high) return result;
-
-            Node lowNode = Find(root, low);
-            Node highNode = Find(root, high);
-
-            if (lowNode == null || highNode == null) return result;
+            if(low > high)
+                return result;
 
             FindRange(root, low, high, result);
 
@@ -87,18 +83,18 @@ namespace Tree {
             }
         }
 
-        void FindRange(Node node, DateTime lowNode, DateTime highNode, List<Workers.Employees> result) {
+        void FindRange(Node node, DateTime low, DateTime high, List<Workers.Employees> result) {
 
             if(node == null)
                 return;
 
             DateTime currentDate = DateTime.Parse(node.data.lastEntranceInEngineRoom);
 
-            if(currentDate > lowNode) {
-                FindRange(node.left, lowNode, highNode, result);
+            if(currentDate > low) {
+                FindRange(node.left, low, high, result);
             }
 
-            if(currentDate >= lowNode && currentDate <= highNode) {
+            if(currentDate >= low && currentDate <= high) {
                 result.Add(node.data);
 
                 for(int i = 0; i < node.duplicates.Count; i++) {
@@ -106,8 +102,8 @@ namespace Tree {
                 }
             }
 
-            if(currentDate < highNode) {
-                FindRange(node.right, lowNode, highNode, result);
+            if(currentDate < high) {
+                FindRange(node.right, low, high, result);
             }
         }
     }

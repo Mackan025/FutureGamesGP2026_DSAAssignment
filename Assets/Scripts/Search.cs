@@ -69,15 +69,15 @@ namespace search {
                     //    }
                     //    return;
                     //}
-                    //else if (mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
+                    //else if(mid > 0 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
                     //    while(mid < workers.employeesSaveArray.Length - 1 && DateTime.Parse(workers.employeesSaveArray[mid + 1].lastEntranceInEngineRoom) == num) {
                     //        result = mid + 1;
                     //        mid++;
                     //    }
                     //    return;
                     //}
-                    
-                    
+
+
 
                     return;
                 }
