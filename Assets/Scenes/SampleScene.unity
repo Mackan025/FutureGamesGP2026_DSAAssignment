@@ -1120,7 +1120,6 @@ Transform:
   - {fileID: 81190252}
   - {fileID: 1915823236}
   - {fileID: 596854603}
-  - {fileID: 1446092843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376741134 stripped
@@ -4036,7 +4035,7 @@ Transform:
   m_GameObject: {fileID: 1446092842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 2, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4085,7 +4084,7 @@ Transform:
   - {fileID: 942139400}
   - {fileID: 1776217604}
   - {fileID: 272207240}
-  m_Father: {fileID: 336675535}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1446092844
 BoxCollider:
@@ -5655,7 +5654,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 457571fe0713d9d42abeff8ada485e7c, type: 2}
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: taskQueue.queue.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: 'taskQueue.queue.Array.data[0]'
@@ -5664,9 +5663,13 @@ PrefabInstance:
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: 'taskQueue.queue.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 9330a33c798573f448c651d307721d48, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a4048013ecd92a40be27808c6929bde, type: 2}
     - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
       propertyPath: 'taskQueue.queue.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a2b5c1f2781246445b900b3a883aba91, type: 2}
+    - target: {fileID: 1261029998129311158, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
+      propertyPath: 'taskQueue.queue.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: a2b5c1f2781246445b900b3a883aba91, type: 2}
     - target: {fileID: 5694532769315531512, guid: 7d560e7070230eb46aeb1576bedf22f3, type: 3}
@@ -5783,3 +5786,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 8404672306686481740}
   - {fileID: 336675535}
+  - {fileID: 1446092843}

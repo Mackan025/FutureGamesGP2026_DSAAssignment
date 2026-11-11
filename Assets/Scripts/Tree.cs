@@ -29,8 +29,23 @@ namespace Tree {
             root = Add(root, data);
         }
 
-        public bool Search(DateTime num) {
+        public Node Search(DateTime num) {
             return Find(root, num);
+        }
+
+        public List<Workers.Employees> SearchRange(DateTime low, DateTime high) {
+            List<Workers.Employees> result = new();
+
+            if (low > high) return result;
+
+            Node lowNode = Find(root, low);
+            Node highNode = Find(root, high);
+
+            if (lowNode == null || highNode == null) return result;
+
+            FindRange(root, low, high, result);
+
+            return result;
         }
 
 
@@ -54,25 +69,46 @@ namespace Tree {
             return node;
         }
 
-        bool Find(Node node, DateTime num) {
+        Node Find(Node node, DateTime num) {
 
             if(node == null) {
-                return false;
+                return null;
             }
 
             if(DateTime.Parse(node.data.lastEntranceInEngineRoom) == num) {
-                return true;
+                return node;
             }
 
             if(num < DateTime.Parse(node.data.lastEntranceInEngineRoom)) {
                 return Find(node.left, num);
-
             }
             else {
                 return Find(node.right, num);
             }
         }
 
-    }
+        void FindRange(Node node, DateTime lowNode, DateTime highNode, List<Workers.Employees> result) {
 
+            if(node == null)
+                return;
+
+            DateTime currentDate = DateTime.Parse(node.data.lastEntranceInEngineRoom);
+
+            if(currentDate > lowNode) {
+                FindRange(node.left, lowNode, highNode, result);
+            }
+
+            if(currentDate >= lowNode && currentDate <= highNode) {
+                result.Add(node.data);
+
+                for(int i = 0; i < node.duplicates.Count; i++) {
+                    result.Add(node.duplicates[i]);
+                }
+            }
+
+            if(currentDate < highNode) {
+                FindRange(node.right, lowNode, highNode, result);
+            }
+        }
+    }
 }
