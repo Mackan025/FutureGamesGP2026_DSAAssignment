@@ -15,6 +15,7 @@ MonoBehaviour:
   array: {fileID: 11400000, guid: 7bb33e31bb41c1e45a1fbb99c21ca4df, type: 2}
   lowString: 2234-08-05T09:51:46
   highString: 2234-08-07T18:42:59
+  RangeSearch: 1
   employees:
   - name: Clara Bramwell
     employeeId: 266

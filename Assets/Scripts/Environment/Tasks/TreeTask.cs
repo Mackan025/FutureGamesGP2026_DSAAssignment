@@ -22,10 +22,13 @@ namespace tree {
 
         [SerializeField] List<Workers.Employees> employees;
 
-
+        float startTime;
 
 
         public override void Execute() {
+
+            startTime = Time.realtimeSinceStartup;
+            
             AddEmployees();
 
             DateTime low = DateTime.Parse(lowString);
@@ -41,6 +44,8 @@ namespace tree {
             else {
                 employees.Add(tree.Search(low).data);
             }
+
+            Debug.Log(BenchMark(startTime) + " seconds to Execute");
         }
 
 
@@ -50,7 +55,14 @@ namespace tree {
             }
         }
 
+        float BenchMark(float start) {
 
+            float stop = Time.realtimeSinceStartup;
+
+            float time = stop - start;
+
+            return time;
+        }
 
 
 
