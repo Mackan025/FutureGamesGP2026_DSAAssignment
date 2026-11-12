@@ -67,15 +67,15 @@ namespace Tree {
 
         Node Find(Node node, DateTime num) {
 
-            if(node == null) {
+            if (node == null) {
                 return null;
             }
 
-            if(DateTime.Parse(node.data.lastEntranceInEngineRoom) == num) {
+            if (DateTime.Parse(node.data.lastEntranceInEngineRoom) == num) {
                 return node;
             }
 
-            if(num < DateTime.Parse(node.data.lastEntranceInEngineRoom)) {
+            if (num < DateTime.Parse(node.data.lastEntranceInEngineRoom)) {
                 return Find(node.left, num);
             }
             else {
@@ -85,16 +85,16 @@ namespace Tree {
 
         void FindRange(Node node, DateTime low, DateTime high, List<Workers.Employees> result) {
 
-            if(node == null)
+            if (node == null)
                 return;
 
             DateTime currentDate = DateTime.Parse(node.data.lastEntranceInEngineRoom);
 
-            if(currentDate > low) {
+            if (currentDate > low) {
                 FindRange(node.left, low, high, result);
             }
 
-            if(currentDate >= low && currentDate <= high) {
+            if (currentDate >= low && currentDate <= high) {
                 result.Add(node.data);
 
                 for(int i = 0; i < node.duplicates.Count; i++) {
@@ -102,7 +102,7 @@ namespace Tree {
                 }
             }
 
-            if(currentDate < high) {
+            if (currentDate < high) {
                 FindRange(node.right, low, high, result);
             }
         }

@@ -63,9 +63,6 @@ namespace tree {
 
             return time;
         }
-
-
-
     }
 
 }
